@@ -1,0 +1,51 @@
+service: serverless-project
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: ${opt:stage, 'dev'}
+  environment:
+    TABLE_NAME: 'AuctionTable-dev'
+
+plugins:
+  - serverless-offline
+
+# resources:
+#   Resources:
+#     PostTable: ${file(resources/Tables.yml):PostTable}
+
+functions:
+  QueryItem:
+    handler: src/Posts/queryItem.handler
+    events:
+      - http:
+          path: /queryItem
+          method: GET
+
+  GetItem:
+    handler: src/Posts/getItem.handler
+    events:
+      - http:
+          path: /getItem
+          method: GET
+      - http:
+          path: /getItem
+          method: POST
+
+  PutItem:
+    handler: src/Posts/putItem.handler
+    events:
+      - http:
+          path: /putItem
+          method: POST
+      - http:
+          path: /putItem
+          method: PUT
+          
+  deleteItem:
+    handler: src/Posts/deleteItem.handler
+    events:
+      - http:
+          path: /deleteItem
+          method: DELETE
