@@ -3,9 +3,8 @@ const { putItem } = require('../services/posts.services');
 const { v4: uuid } = require('uuid');
 
 module.exports.handler = async (event) => {
-  const { id, title, file } = JSON.parse(event.body);
+  const { id, title } = JSON.parse(event.body);
 
-  console.log("File:::::",file)
   const TableName = process.env.TABLE_NAME;
   const now = new Date();
   const data = await putItem({
