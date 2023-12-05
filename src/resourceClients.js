@@ -6,5 +6,5 @@ const s3Client = new S3Client({region:'eu-west-1'});
 
 module.exports = {
     ddbClient,
-    s3Clinet
+    s3Client
 }

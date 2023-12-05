@@ -7,6 +7,7 @@ provider:
   stage: ${opt:stage, 'dev'}
   environment:
     TABLE_NAME: 'AuctionTable-dev'
+    BUCKET_NAME: 'sls-project-gokul'
 
 plugins:
   - serverless-offline
@@ -42,10 +43,29 @@ functions:
       - http:
           path: /putItem
           method: PUT
-          
+
   deleteItem:
     handler: src/Posts/deleteItem.handler
     events:
       - http:
           path: /deleteItem
           method: DELETE
+  uploadFile:
+    handler: src/Posts/fileManage.uploadFile
+    events:
+      - http:
+          path: /upload
+          method: POST
+  removeFile:
+    handler: src/Posts/fileManage.removeFile
+    events: 
+      - http:
+          path: /remove
+          method: DELETE
+  getFileContent:
+    handler: src/Posts/fileManage.displayContent
+    events:
+      - http:
+          path: /getcontent
+          method: POST
+        
