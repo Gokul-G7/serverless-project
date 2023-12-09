@@ -12,10 +12,6 @@ provider:
 plugins:
   - serverless-offline
 
-# resources:
-#   Resources:
-#     PostTable: ${file(resources/Tables.yml):PostTable}
-
 functions:
   QueryItem:
     handler: src/Posts/queryItem.handler
@@ -51,19 +47,19 @@ functions:
           path: /deleteItem
           method: DELETE
   uploadFile:
-    handler: src/Posts/fileManage.uploadFile
+    handler: src/Posts/bucketHandler.uploadFile
     events:
       - http:
           path: /upload
           method: POST
   removeFile:
-    handler: src/Posts/fileManage.removeFile
+    handler: src/Posts/bucketHandler.removeFile
     events: 
       - http:
           path: /remove
           method: DELETE
   getFileContent:
-    handler: src/Posts/fileManage.displayContent
+    handler: src/Posts/bucketHandler.displayContent
     events:
       - http:
           path: /getcontent
