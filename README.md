@@ -12,7 +12,7 @@ authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
 -->
 
 
-# Serverless Framework AWS-NodeJS example demonstrating CRUD operations in DynamoDB and the management of an S3 Bucket using JavaScript (JS) v3
+# Serverless Framework AWS-NodeJS example demonstrating CRUD operations in DynamoDB and the management of an S3 Bucket using AWS SDK for JavaScript (JS) v3
 
 This repository features a serverless application that establishes connections with Amazon DynamoDB and S3 buckets through its individual handler functions. The emphasis of this project is on simplicity, making it an ideal resource for learning the basics of the **AWS SDK for JavaScript v3**.
 
